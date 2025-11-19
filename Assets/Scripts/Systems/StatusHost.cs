@@ -8,7 +8,7 @@ namespace TerracottaARPG.Systems
     /// </summary>
     public class StatusHost : MonoBehaviour
     {
-        [Header("Status Effects")]
+        // 状态属性（只读）
         public bool Stunned { get; private set; }
         public bool Slowed { get; private set; }
         public float SlowPercent { get; private set; }
