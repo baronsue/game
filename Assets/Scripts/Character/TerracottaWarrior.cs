@@ -225,7 +225,7 @@ namespace TerracottaARPG.Character
             {
                 if (h.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    if (damageable == this) continue; // 不伤害自己
+                    if (ReferenceEquals(damageable, this)) continue; // 不伤害自己
 
                     // 计算伤害
                     float damage = CalculateDamage(slamDamage);
@@ -315,7 +315,7 @@ namespace TerracottaARPG.Character
             {
                 if (h.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    if (damageable == this) continue;
+                    if (ReferenceEquals(damageable, this)) continue;
 
                     // 检查是否可处决（需要实现生命值接口）
                     if (h.TryGetComponent<EnemyBase>(out var enemy))
