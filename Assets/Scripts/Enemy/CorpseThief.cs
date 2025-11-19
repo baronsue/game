@@ -1,5 +1,6 @@
 using UnityEngine;
 using TerracottaARPG.Core;
+using TerracottaARPG.Systems;
 
 namespace TerracottaARPG.Character
 {
