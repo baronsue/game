@@ -151,6 +151,20 @@ namespace TerracottaARPG.Character
             _moveInput.x = Input.GetAxisRaw("Horizontal");
             _moveInput.y = Input.GetAxisRaw("Vertical");
 
+            // 兼容缺失输入轴的场景：直接读取WASD键值，避免玩家无法移动
+            if (_moveInput.sqrMagnitude < 0.01f)
+            {
+                float x = 0f;
+                float y = 0f;
+
+                if (Input.GetKey(KeyCode.A)) x -= 1f;
+                if (Input.GetKey(KeyCode.D)) x += 1f;
+                if (Input.GetKey(KeyCode.S)) y -= 1f;
+                if (Input.GetKey(KeyCode.W)) y += 1f;
+
+                _moveInput = new Vector2(x, y);
+            }
+
             // 技能输入
             if (Input.GetKeyDown(KeyCode.Q))
                 TryCastSlam();
